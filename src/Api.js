@@ -6,7 +6,7 @@ class JoblyApi {
 
     static async login(user){
         try{
-            const result = await axios.post(`${BASE_API_URL}login`,user);
+            const result = await axios.post(`${BASE_API_URL}/login`,user);
             return result.data.loginData;
         }catch(error){
             console.log(error,'api');
