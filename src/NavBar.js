@@ -10,7 +10,7 @@ function NavBar(){
     //setting, and deleting the token
     const auth = useContext(AuthContext);
     //loggedin determines what navitem is displayed or not
-    let loggedin = auth['token'];
+    let loggedin = auth['token'] ? true : false;
     return(
         <div>
         <Navbar expand="md">

@@ -4,11 +4,14 @@ import AuthContext from './hooks/AuthContext';
 import {v4 as uuid} from 'uuid';
 import JobCard from './JobCard';
 import SearchBar from './SearchBar';
-import {Button} from 'reactstrap';
+import {Button, Jumbotron} from 'reactstrap';
+import {useHistory} from 'react-router-dom';
 
 function Jobs(){
 
     const auth = useContext(AuthContext);
+
+    const history = useHistory();
 
     const [jobs, setJobs, addJob] = useAxios();
 
@@ -22,6 +25,15 @@ function Jobs(){
         }
         getJobs();
     }, [])
+
+    if(!auth['token']){
+        return(
+            <Jumbotron>
+                <h1>Not Authorized. Please login or sign up.</h1>
+                <Button onClick={()=>history.push('/loginsignup')}>Login/Signup</Button>
+            </Jumbotron>
+        )
+    }
 
     return(
         <>

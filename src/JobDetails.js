@@ -69,7 +69,7 @@ function JobDetails(){
     if(!job.title){
         return(
             <>
-            <h2>loading..</h2>
+            <Card><Spinner color='info'></Spinner>loading..</Card>
             </>
         )
     }
@@ -90,7 +90,7 @@ function JobDetails(){
                 <b>Equity:</b> {job.equity}
               </p>
             </CardBody>
-            <Button disabled={applied ? applied : false} onClick={()=>apply(true)}>Apply</Button>
+            <Button disabled={applied ? true : false} onClick={()=>apply(true)}>Apply</Button>
           </Card>
     )
 

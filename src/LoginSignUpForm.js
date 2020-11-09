@@ -15,7 +15,8 @@ function LoginSignUpForm({type}){
     const INITIAL_STATE = {'login':{username:"",password:""},
     'signup':{username:"",password:"",first_name:"",last_name:"",email:"",photo_url:""}}
 
-    //used to track the data entered into the form
+    //used to track the data entered into the form. Since this form is one state,
+    //the INIITIAL_STATE must be passed in as an update.
     const [form,updateForm] = useState(INITIAL_STATE[formType]);
 
     //hide and show error about login
@@ -32,14 +33,12 @@ function LoginSignUpForm({type}){
 
     //useEffect for authentication and registration
     /**
-     * important note, useEffect will only run if submit variable changes.
+     * important note, useEffect will only run if submit variable changes or formType.
      */
     useEffect(()=>{
         async function formSubmission(){
             if(submit === 'login'){
-                try{
                     const result = await JoblyApi.login(form);
-                    console.log(result,'sign');
                     if(result){
                         auth['setToken']('token',result.token);
                         auth['setUser']('user',result.user);
@@ -47,11 +46,9 @@ function LoginSignUpForm({type}){
                         history.push('/applications');
                     }
                     else{
+                        setSubmit(false);
                         toggleLoginError();
                     }
-                } catch(error){
-                    console.log(error);
-                }
             }
             else{
                 try{
@@ -82,7 +79,11 @@ function LoginSignUpForm({type}){
     if(submit){
         formSubmission();
     }
-    },[submit]);
+    //this emptys the form so data entered during login isn't displayed on the signup
+    //form and vis versa.
+    document.getElementById('form').reset();
+
+    },[submit,formType]);
 
     const history = useHistory();
 
@@ -102,7 +103,7 @@ function LoginSignUpForm({type}){
 
     if(formType === 'login'){
         return(
-            <Form onSubmit={handleSubmit}>
+            <Form id='form' onSubmit={handleSubmit}>
                 <p className={displayLoginError ? 'show' : 'hidden'} style={{color:'red'}}
                 >Invalid username and/or password</p>
                 <FormGroup>
@@ -118,7 +119,7 @@ function LoginSignUpForm({type}){
         )
     }
     return(
-        <Form onSubmit={handleSubmit}>
+        <Form id='form' onSubmit={handleSubmit}>
             <p style={{color:'red'}}>* required</p>
             <SignupErrors classname={signupErrors ? 'show':'hidden'} 
             errors={signupErrors}/>

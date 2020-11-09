@@ -24,13 +24,12 @@ function SearchBar({type, search}){
     return(
         <Card>
             <Form inline onSubmit={handleSubmit}>
-            <div style={{width:"100%",height:"35px",display:'flex'}}>
-                <Input onChange={handleChange} placeholder={searchPlaceholder} 
-                type='text' name="term" id="term"
-                style={{width:"100%",display:"inline-flex"}}required/>
-                <Button style={{width:"100px"}}color='primary'>Submit</Button>
-            </div>
-            
+                <div style={{width:"100%",height:"35px",display:'flex'}}>
+                    <Input onChange={handleChange} placeholder={searchPlaceholder} 
+                    type='text' name="term" id="term"
+                    style={{width:"100%",display:"inline-flex"}}required/>
+                    <Button style={{width:"100px"}}color='primary'>Submit</Button>
+                </div>
             </Form>
         </Card>
     )

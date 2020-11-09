@@ -44,8 +44,8 @@ function Application({application}){
                 }
             }
             //update local storage
-            auth['removeUser']('user');
-            auth['setUser']('user',user);
+            //auth['removeUser']('user');
+            //auth['setUser']('user',user);
         }
 
         getJob();
@@ -70,9 +70,14 @@ function Application({application}){
                 </p>
             </CardBody>
             <div style={{margin:'5px'}}>
-                <Button disabled={job.status === 'withdrawed'?true:false} style={{marginRight:'5px'}}color="danger" onClick={()=>setUnapplied(true)}>
-                    UnApply</Button>
-                <Button color='primary' onClick={()=>history.push(`jobs/${application.job_id}`)}>View Job</Button>
+                <Button color={job.status==='withdrawed'?'secondary':'danger'} 
+                disabled={job.status === 'withdrawed'?true:false} style={{marginRight:'5px'}} onClick={()=>setUnapplied(true)}>
+                    UnApply
+                </Button>
+
+                <Button color='primary' onClick={()=>history.push(`jobs/${application.job_id}`)}>
+                    View Job
+                </Button>
             </div>
             </Card>
         </>
