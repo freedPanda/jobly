@@ -9,9 +9,9 @@ function CompanyCard({company}){
     return (
         <Card>
             <div style={{width:'100%',display:'flex'}}>
-                <CardImg style={{width:"300px"}} src={company.logo_url} alt="Company Logo"/>
+                <CardImg style={{width:"10rem"}} src={company.logo_url} alt="Company Logo"/>
                 
-                <CardBody>
+                <CardBody style={{textAlign:'left'}}>
                     <CardTitle className="font-weight-bold text-start">
                         {company.name}
                     </CardTitle>

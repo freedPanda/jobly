@@ -7,6 +7,7 @@ import JobCard from './JobCard';
 import {v4 as uuid} from 'uuid';
 import useToggle from './hooks/useToggle';
 import { Jumbotron, Button } from 'reactstrap';
+import './App.css'
 
 function CompanyDetails(){
 
@@ -58,12 +59,12 @@ function CompanyDetails(){
     return(
         <Container fluid={true}>
         
-        <Card>
+        <Card id='company-details' style={{boxShadow:'none', border:'none'}}>
         <div style={{textAlign:'left'}}>
             <h3 style={{color:'black',display:'inline',float:'left', margin:'10px'}}>{company.name}</h3>
         </div>
             <div style={{width:'100%',display:'flex'}}>
-                <CardImg style={{width:"300px"}} src={company.logo_url} alt="Company Logo"/>
+                <CardImg style={{width:"10rem"}} src={company.logo_url} alt="Company Logo"/>
                 
                 <CardBody >
                     <CardTitle className="font-weight-bold text-start">
@@ -80,7 +81,8 @@ function CompanyDetails(){
                 </CardBody>
             </div>
         </Card>
-        <h5>Job Openings</h5>
+        <hr className="my-3"/>
+        <h3 style={{color:'black'}}>Job Openings</h3>
             {company.jobs.map(job=>(
                 job.company_handle = handle,
                 <JobCard key={uuid()} job={job}/>

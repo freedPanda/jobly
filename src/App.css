@@ -9,6 +9,7 @@ main {
   color: blue;
 }
 
+
 .card {
   border-radius: 0;
   color:black;
@@ -19,4 +20,6 @@ main {
   margin-bottom: 5vh;
   height:'100%'
 }
+
+
 

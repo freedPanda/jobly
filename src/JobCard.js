@@ -63,7 +63,7 @@ function JobCard({job}){
                         <b>Company: </b>{company}
                     </CardText>
                 </CardBody>
-                <Button style={{width:'10rem'}}onClick={()=>history.push(`/jobs/${job.id}`)}>View Job</Button>
+                <Button color="primary" style={{width:'10rem'}}onClick={()=>history.push(`/jobs/${job.id}`)}>View Job</Button>
             </Card>
         </Container>
       );
