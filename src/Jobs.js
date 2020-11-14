@@ -4,7 +4,7 @@ import AuthContext from './hooks/AuthContext';
 import {v4 as uuid} from 'uuid';
 import JobCard from './JobCard';
 import SearchBar from './SearchBar';
-import {Button, Jumbotron} from 'reactstrap';
+import {Button, Jumbotron, Container} from 'reactstrap';
 import {useHistory} from 'react-router-dom';
 
 function Jobs(){
@@ -36,7 +36,7 @@ function Jobs(){
     }
 
     return(
-        <>
+        <Container fluid={true} style={{textAlign:'center'}}>
             <Button onClick={()=>{setJobs(auth['token'],'jobs')}}
             style={{width:"10rem",height:'2.5rem',marginBottom:"20px"}}>Back to All Jobs</Button>
 
@@ -46,7 +46,7 @@ function Jobs(){
             {jobs.map(job =>(
                 <JobCard key={uuid()} job={job}/>
             ))}
-        </>
+        </Container>
     )
 
 }
