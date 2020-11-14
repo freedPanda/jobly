@@ -22,7 +22,7 @@ function CompanyCard({company}){
                 </CardBody>
             </div>
             <div style={{textAlign:'end'}}>
-                <Button style={{width:"15%",marginBottom:'6px',marginRight:'6px'}}onClick={()=>history.push(`/companies/${company.handle}`)}>
+                <Button style={{width:"8rem",marginBottom:'6px',marginRight:'6px'}}onClick={()=>history.push(`/companies/${company.handle}`)}>
                     View More
                 </Button>
             </div>
