@@ -1,6 +1,6 @@
 import React,{useEffect,useState, useContext} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
+import { Card, CardBody, CardTitle, CardText, CardImg, Container } from "reactstrap";
 import AuthContext from './hooks/AuthContext';
 import JoblyApi from './Api';
 import JobCard from './JobCard';
@@ -56,7 +56,7 @@ function CompanyDetails(){
     }
 
     return(
-        <>
+        <Container fluid={true}>
         
         <Card>
         <div style={{textAlign:'left'}}>
@@ -65,7 +65,7 @@ function CompanyDetails(){
             <div style={{width:'100%',display:'flex'}}>
                 <CardImg style={{width:"300px"}} src={company.logo_url} alt="Company Logo"/>
                 
-                <CardBody>
+                <CardBody >
                     <CardTitle className="font-weight-bold text-start">
                         {company.name}
                     </CardTitle>
@@ -85,7 +85,7 @@ function CompanyDetails(){
                 job.company_handle = handle,
                 <JobCard key={uuid()} job={job}/>
         ))}
-        </>
+        </Container>
     )
 
 }

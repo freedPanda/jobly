@@ -4,7 +4,7 @@ import AuthContext from './hooks/AuthContext';
 import {v4 as uuid} from 'uuid';
 import CompanyCard from './CompanyCard';
 import SearchBar from './SearchBar';
-import {Button} from 'reactstrap';
+import {Button,Container} from 'reactstrap';
 
 function Companies(){
 
@@ -25,7 +25,7 @@ function Companies(){
     }, [])
 
     return(
-        <>
+        <Container fluid={true} style={{textAlign:'center'}}>
             <Button onClick={()=>{setCompanies(auth['token'],'companies'); }}
             style={{width:"200px",marginBottom:"20px"}}>Back to All Companies</Button>
 
@@ -35,7 +35,7 @@ function Companies(){
             {companies.map(company =>(
                 <CompanyCard key={uuid()} company={company}/>
             ))}
-        </>
+        </Container>
     )
 
 }

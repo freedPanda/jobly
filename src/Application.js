@@ -1,5 +1,5 @@
 import React,{useState,useContext, useEffect} from 'react';
-import {Card,CardBody,Button} from 'reactstrap';
+import {Card,CardBody,Button,Container, CardHeader, CardText,CardSubtitle} from 'reactstrap';
 import {useHistory} from 'react-router-dom';
 import AuthContext from './hooks/AuthContext';
 import JoblyApi from './Api';
@@ -56,20 +56,22 @@ function Application({application}){
     },[unapplied])
 
     return(
-        <>
+        <Container fluid={true} style={{textAlign:'center'}}>
         
         <Card>
-            <CardBody>
-            <div><h4 style={{display:'inline'}}><b>Job Title: </b>{job.title}</h4>
+            <CardHeader>
+            <div><h4 style={{display:'inline',float:'left'}}><b>Job Title: </b>{job.title}</h4>
             <h4 style={{display:'inline',float:'right'}}>Status: {job.status}</h4></div>
-                <p>
-                    <b>Company: </b>{job.company}
-                </p>
-                <p>
-                    <b>Salary: </b>${job.salary}
-                </p>
+            </CardHeader>
+            <CardBody>
+                    <CardSubtitle style={{float:'left', textAlign:'left',width:'100%'}}>
+                            <b>Company: </b>{job.company}
+                        </CardSubtitle>
+                        <CardSubtitle style={{float:'left',textAlign:'left',width:'100%'}}>
+                            <b>Salary: </b>${job.salary}
+                        </CardSubtitle>
             </CardBody>
-            <div style={{margin:'5px'}}>
+            <div style={{margin:'5px',textAlign:'left'}}>
                 <Button color={job.status==='withdrawed'?'secondary':'danger'} 
                 disabled={job.status === 'withdrawed'?true:false} style={{marginRight:'5px'}} onClick={()=>setUnapplied(true)}>
                     UnApply
@@ -80,7 +82,7 @@ function Application({application}){
                 </Button>
             </div>
             </Card>
-        </>
+        </Container>
     )
 }
 export default Application;

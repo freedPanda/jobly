@@ -3,7 +3,7 @@ import {v4 as uuid} from 'uuid';
 import AuthContext from './hooks/AuthContext';
 import {useHistory} from 'react-router-dom';
 import Application from './Application';
-import {Jumbotron, Button} from 'reactstrap';
+import {Jumbotron, Button, Container} from 'reactstrap';
 
 function Applications(){
 
@@ -33,12 +33,12 @@ function Applications(){
         )
     }
     return(
-        <>
+        <Container fluid={true} style={{textAlign:'center'}}>
         <h3 style={{color:'black'}}>My Applications</h3>
         {applications.map(applications =>(
             <Application key={uuid()} application={applications}/>
         ))}
-        </>
+        </Container>
     )
 }
 export default Applications;

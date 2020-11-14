@@ -1,6 +1,6 @@
 import React,{useState,useContext, useEffect} from 'react';
 import {useParams} from 'react-router-dom'
-import { Card, CardBody, CardTitle, CardText, Button, Spinner} from "reactstrap";
+import { Card, CardBody, CardTitle, CardText, Button, Spinner, Container} from "reactstrap";
 import useAxios from './hooks/useAxios';
 import AuthContext from './hooks/AuthContext';
 import JoblyApi from './Api';
@@ -75,6 +75,7 @@ function JobDetails(){
     }
 
     return(
+        <Container fluid={true}>
         <Card>
             <CardBody>
             <div><h4 style={{display:'inline'}}><b>Job Title: </b>{job.title}</h4>
@@ -92,6 +93,7 @@ function JobDetails(){
             </CardBody>
             <Button disabled={applied ? true : false} onClick={()=>apply(true)}>Apply</Button>
           </Card>
+          </Container>
     )
 
 }
