@@ -55,13 +55,13 @@ function JobCard({job}){
         
           <Card>
             <CardBody>
-            <div><h4 style={{display:'inline'}}><b>Job Title: </b>{job.title}</h4>
-            <h4 style={{display:'inline',float:'right'}}>
+            <div><h4 style={{display:'inline-flex'}}><b>Job Title: </b>{job.title}</h4>
+            <h4 style={{display:'inline-flex',float:'right'}}>
                 Status: {applied ? applied: 'active'}</h4></div>
             
               <CardText className="font-italic"><b>Company: </b>{company}</CardText>
             </CardBody>
-            <Button style={{width:'150px'}}onClick={()=>history.push(`/jobs/${job.id}`)}>View Job</Button>
+            <Button style={{width:'10rem'}}onClick={()=>history.push(`/jobs/${job.id}`)}>View Job</Button>
           </Card>
         
       );
