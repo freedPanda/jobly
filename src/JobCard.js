@@ -51,9 +51,9 @@ function JobCard({job}){
         )
     }
 
-    return (
+    /*return (
         <Container fluid={true} style={{justifyContent:'center'}}>
-            <Card style={{height:"100%", marginLeft:'10rem', marginBottom:'1rem'}}>
+            <Card style={{height:"100%", marginLeft:'10rem', marginBottom:'2.5rem'}}>
                 <CardBody>
                 <div><h4 style={{display:'inline-flex'}}><b>Job Title: </b>{job.title}</h4>
                 <h4 style={{display:'inline-flex',float:'right'}}>
@@ -66,7 +66,19 @@ function JobCard({job}){
         </Container>
           
         
-      );
+      );*/
+      return(
+        <Card style={{height:"100%", marginBottom:'2.5rem'}}>
+            <CardBody>
+            <div><h4 style={{display:'inline-flex'}}><b>Job Title: </b>{job.title}</h4>
+            <h4 style={{display:'inline-flex',float:'right'}}>
+                Status: {applied ? applied: 'active'}</h4></div>
+            
+            <CardText className="font-italic"><b>Company: </b>{company}</CardText>
+            </CardBody>
+            <Button style={{width:'10rem'}}onClick={()=>history.push(`/jobs/${job.id}`)}>View Job</Button>
+        </Card>
+      )
 }
 
 export default JobCard;
