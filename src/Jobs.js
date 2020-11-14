@@ -38,7 +38,7 @@ function Jobs(){
     return(
         <>
             <Button onClick={()=>{setJobs(auth['token'],'jobs')}}
-            style={{width:"200px",marginBottom:"20px"}}>Back to All Jobs</Button>
+            style={{width:"10rem",height:'2.5rem',marginBottom:"20px"}}>Back to All Jobs</Button>
 
             <h2 style={{color:'black'}}>Jobs</h2>
             <SearchBar type={'Jobs'} search={setJobs}/>
